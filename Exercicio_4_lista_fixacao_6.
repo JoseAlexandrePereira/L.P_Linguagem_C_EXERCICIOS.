@@ -1,0 +1,63 @@
+//exercício 4 da lista 6 de fixação. Exercício realizado em aula juntamente ao professor. 
+
+/*4. Desenvolva um programa que peça para o usuário fornecer um número inteiro. Use uma estrutura de seleção
+para verificar se o número é igual a 2, ou 4, ou 6, ou 8. Caso seja um desses números, exiba uma mensagem
+informando ao usuário o número que foi digitado. Caso não seja nenhum dos números esperados, informe o usuário
+que o valor inserido é inválido.
+  */
+
+#include <stdio.h>
+#include <stdbool.h>
+
+bool eh_valido(int value);
+
+int main(){
+int input;
+printf("Digite número: ");
+scanf("%d", &input);
+
+/*if(eh_valido(input)){
+printf("Valor digitado: %d\n, input");
+}else{
+
+    printf("Valor inserido eh inváido.\n");
+}
+
+
+} */
+
+switch(eh_valido(input)){
+case true:
+printf("Valor digitado: %d\n", input);
+break;
+case false:
+printf("Valor inserido eh inválido.\n");
+break;
+default:
+printf("Defauute");
+break;
+
+}
+return 0;
+}
+
+bool eh_valido(int value){
+
+bool valida;
+switch (value)
+{
+case 2:
+case 4:
+case 6:
+case 8:
+
+valida = true;
+break;
+
+default:
+valida = false;
+    break;
+}
+return valida;
+}
+

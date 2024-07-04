@@ -1,0 +1,41 @@
+/*2. Desenvolva um programa que leia um valor inteiro N. O programa deve chamar a função categoria() passando
+como argumento o valor lido. A função categoria() imprime na tela uma das seguintes mensagens: “F1”, “F2” ou
+“F3”, conforme a condição:
+• “F1”, se o argumento <= 10;
+• “F2”, se o argumento > 10 e o argumento <= 100;
+• “F3”, se o argumento > 100*/
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+categoria(int valor);
+
+
+int main(){
+
+int input;
+printf("Digite número:");
+scanf("%d", &input);
+categoria(input);
+return 0;
+}
+
+void categoria (int valor){
+
+if(valor <= 10){
+printf("Categoria F1\n");
+}
+
+if(valor > 10 && valor <= 100){
+    printf("categoria F2\n")
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+if(valor > 100){
+    printf("categoria F3\n")
+}
+}
+

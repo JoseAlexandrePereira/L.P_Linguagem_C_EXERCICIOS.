@@ -1,0 +1,259 @@
+ //Estudos de função em linguagem C.
+
+/* Desenvolver um programa que leia um número inteiro entre 0 e 999 
+e apresente esse número decomposto em unidade, dezena e 
+centena.
+ */
+
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+
+ int numero, unidade, dezena, centena;
+ 
+ printf("Digite número de 0 a 999: ");
+ scanf("%d", &numero);
+
+ centena = numero / 100;
+ numero = numero % 100;
+ dezena = numero / 10;
+ unidade = numero % 10;
+
+ printf("Centena.: %d\n", centena);
+ printf("Dezena..: %d\n", dezena);
+ printf("Unidade.: %d\n\n", unidade);
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Leia os quatro valores correspondentes aos eixos x e y de dois pontos quaisquer no plano, p1(x1,y1) e p2(x2,y2) 
+e calcule a distância entre eles, mostrando 4 casas decimais após a vírgula, segundo a fórmula:
+
+● Distancia = √(x2-x1)^2+(y2-y1)^2.
+
+● Entrada: 
+
+O arquivo de entrada contém duas linhas de dados. A primeira linha contém dois 
+valores de ponto flutuante: x1 y1 e a segunda linha contém dois valores de ponto 
+flutuante x2 y2.
+
+● Saída:
+
+– Calcule e imprima o valor da distância segundo a fórmula fornecida, com 4 casas 
+após o ponto decimal */
+
+#include <stdio.h>
+#include <math.h>
+
+int main(int argc, char const *argv[]){
+    
+ float p1_x, p1_y, p2_x, p2_y, dist;
+
+ scanf("%f", &p1_x);
+ scanf("%f", &p1_y);
+ scanf("%f", &p2_x);
+ scanf("%f", &p2_y);
+
+ dist = pow( (p2_x - p1_x), 2);
+ dist = dist + pow( (p2_y - p1_y), 2);
+ dist = sqrt(dist);
+
+ printf("%.4f\n", dist);
+
+ return 0;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* #include <stdio.h> 
+
+void mensagem();
+
+int main(int argc, char const *argv[]){
+
+ mensagem();
+
+ mensagem();
+
+ return 0;
+}
+
+
+void mensagem(){
+
+ printf("A função mensagem() deseja uma ótima noite!\n\n");
+
+}
+ 
+-------------------------------------------------------------------------------------------------------------------
+
+
+#include <stdio.h>
+
+void soma_numero();
+
+int main(int argc, char const *argv[]){
+
+ soma_numero();
+ soma_numero();
+ soma_numero();
+ soma_numero();
+ soma_numero();
+
+ return 0;
+}
+
+void soma_numero(){
+
+ int n1, n2, sum;
+
+ printf("Digite 2 números inteiros:\n");
+ scanf("%d%d", &n1, &n2);
+
+ sum = n1 + n2;
+
+ printf("SOMA = %d\n\n", sum);
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+int soma_numero();
+
+int main(int argc, char const *argv[]){
+
+ int result;
+
+ result = soma_numero();
+
+ printf("SOMA = %d\n\n", result);
+ printf("SOMA = %d\n\n", soma_numero() );
+
+ return 0;
+}
+
+int soma_numero(){
+
+ int n1, n2, sum;
+
+ printf("Digite 2 números inteiros:\n");
+ scanf("%d%d", &n1, &n2);
+
+ sum = n1 + n2;
+ 
+ return sum;
+}
+
+-------------------------------------------------------------------------------------------------------------------
+*/
+
+#include <stdio.h>
+
+int soma_numero(int a, int b);
+
+
+int main(){
+ int valor1, valor2, resultado;
+
+ printf("Digite 2 números inteiros:\n");
+ scanf("%d%d", &valor1, &valor2);
+
+ resultado = soma_numero(valor1, valor2);
+
+ printf("SOMA = %d\n\n", resultado);
+
+ printf("SOMA = %d\n\n", soma_numero(14, 6) );
+
+ return 0;
+}
+int soma_numero(int a, int b){
+
+ int sum;
+
+ sum = a + b;
+
+ return sum;
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+/*  #include <stdio.h>
+
+int main(int argc, char const *argv[]){
+
+ int ingressos, porcentagem;
+ float popular, geral, arquibancada, cadeiras, renda;
+ float preco;
+
+ printf("Informe quantidade de ingressos: ");
+ scanf("%d", &ingressos);
+
+ preco = 1.0;
+ porcentagem = 10;
+ popular = (ingressos * porcentagem / 100) * preco;
+
+ preco = 5.0;
+ porcentagem = 50;
+ geral = (ingressos * porcentagem / 100) * preco;
+
+ preco = 10.0;
+ porcentagem = 30;
+ arquibancada = (ingressos * porcentagem / 100) * preco;
+
+ preco = 2.0;
+ porcentagem = 10;
+ cadeiras = (ingressos * porcentagem / 100) * preco;
+
+ renda = popular + geral + arquibancada + cadeiras;
+
+ printf("RENDA DO JOGO: %.2f\n\n", renda);
+
+ return 0;
+
+}
+
+___________________________________________________________________________________________________________________________________
+
+*/
+
+#include <stdio.h>
+
+float calcula_renda(int ingresso, int porcent, float valor);
+
+
+int main(int argc, char const *argv[]){
+
+ int ingressos;
+ float popular, geral, arquibancada, cadeiras, renda;
+
+ printf("Informe quantidade de ingressos: ");
+ scanf("%d", &ingressos);
+
+
+ popular = calcula_renda(ingressos, 10, 1.0);
+
+ 
+ geral = calcula_renda(ingressos, 50, 5.0);
+
+ 
+ arquibancada = calcula_renda(ingressos, 30, 10.0);
+
+ 
+ cadeiras = calcula_renda(ingressos, 10, 2.0);
+ 
+ renda = popular + geral + arquibancada + cadeiras;
+
+ printf("RENDA DO JOGO: %.2f\n\n", renda);
+
+ return 0;
+}
+
+float calcula_renda(int ingresso, int porcent,float valor){
+
+ return (ingresso * porcent / 100) * valor;
+}
+
+___________________________________________________________________________________________________________________________________

@@ -1,0 +1,324 @@
+
+/* 1. Desenvolva um programa que calcule a média de um aluno na disciplina, considerando os critérios de
+avaliação indicados no plano de aulas. O programa deve solicitar a entrada de todas as notas das avaliações e
+seus respectivos pesos. Mostre a média como resultado e caso ela seja maior ou igual a 6.0, informe que o
+aluno foi aprovado. Caso a nota seja inferior à 6.0, deve-se solicitar a nota do IFA (instrumento final de
+avaliação) e apresentar a nota final do estudante e sua situação (aprovado ou reprovado). Observação: para
+esse exercício não considere a frequência.
+ */
+
+
+#include <stdio.h>
+
+int main() {
+
+    int num_avaliacoes;
+
+    printf("Digite o número de avaliações: ");
+    scanf("%d", &num_avaliacoes);
+
+    double notas[num_avaliacoes];
+
+    int pesos[num_avaliacoes];
+
+    double soma_notas = 0.0;
+
+    int soma_pesos = 0;
+
+    int contador = 0; 
+
+    
+    while (contador < num_avaliacoes) {
+
+        printf("Digite a nota da avaliação %d: ", contador + 1);
+        scanf("%lf", &notas[contador]);
+
+        printf("Digite o peso da avaliação %d (inteiro): ", contador + 1);
+        scanf("%d", &pesos[contador]);
+
+        soma_notas += notas[contador] * pesos[contador];
+
+        soma_pesos += pesos[contador];
+
+        contador++; 
+    }
+
+    
+    double media = soma_notas / soma_pesos;
+
+    printf("A média do aluno é: %.2lf\n", media);
+
+    if (media >= 6.0) {
+        printf("O aluno está aprovado!\n");
+    } else {
+        double nota_ifa;
+        printf("Digite a nota do IFA: ");
+        scanf("%lf", &nota_ifa);
+        
+        
+        double nota_final = (media + nota_ifa) / 2.0;
+        printf("A nota final do aluno é: %.2lf\n", nota_final);
+        
+        
+        if (nota_final >= 6.0) {
+            printf("O aluno está aprovado!\n");
+        } else {
+            printf("O aluno está reprovado.\n");
+        }
+    }
+
+    return 0;
+}
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/* 2. Desenvolva um programa que realize arredondamentos de números utilizando a regra usual da matemática:
+se a parte fracionária for maior do que ou igual a 0,5, o número é arredondado para o inteiro imediatamente
+superior, caso contrário, é arredondado para o inteiro imediatamente inferior.
+ */
+
+
+#include <stdio.h>
+#include <math.h>
+
+
+int main(){
+
+float numero;
+
+printf("Digite um valor real:");
+scanf("%f", &numero);
+
+int numero_arredondado;
+
+if (numero >= 0)
+{
+    numero_arredondado = (int)(numero + 0.5);
+}else{
+
+    numero_arredondado = (int)(numero - 0.5);
+}
+
+printf("O arredondamento do número %.1f é: %d\n", numero, numero_arredondado);
+
+return 0;
+
+}
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/* 3. Desenvolva um programa que leia três valores do tipo ponto flutuante e verifique se esses valores formam
+ou não um triângulo. Caso formem triângulo, o programa deve informar o tipo do triângulo (equilátero,
+isósceles ou escaleno) */
+
+
+
+#include <stdio.h>
+
+int main() {
+    float X, Y, Z;
+    
+    
+    printf("Digite o valor de X: ");
+    scanf("%f", &X);
+    printf("Digite o valor de Y: ");
+    scanf("%f", &Y);
+    printf("Digite o valor de Z: ");
+    scanf("%f", &Z);
+    
+    if (X < Y + Z && Y < X + Z && Z < X + Y) {
+        
+        if (X == Y && Y == Z) {
+            printf("Os lados formam um triângulo equilátero.\n");
+        } else if (X == Y || X == Z || Y == Z) {
+            printf("Os lados formam um triângulo isósceles.\n");
+        } else {
+            printf("Os lados formam um triângulo escaleno.\n");
+        }
+    } 
+    
+    return 0;
+}
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/*  4. Uma empresa decidiu dar um aumento escalonado a seus funcionários de acordo com a seguinte regra: 13%
+para os salários inferiores ou iguais a R$ 2.000,00; 11% para os salários situados entre R$ 2.000,0 e R$
+4.000,00 (inclusive); 9 % para os salários entre R$ 4.000,00 e R$ 8.000,00 (inclusive) e 7% para os demais
+salários. Desenvolva um programa que receba o salário atual de um funcionário e forneça o valor do seu novo
+salário.
+*/
+
+#include <stdio.h>
+
+float aumento_salario(float argumento);
+
+
+int main()
+{
+    float salario_atual, novo_salario;
+
+    printf("Informe seu salário atual: ");
+scanf("%f", &salario_atual);
+
+ 
+
+printf("Seu salário atual é de %.1f e ganhou um reajuste para %.1f.\n", salario_atual, aumento_salario(salario_atual));
+
+    return 0;
+}
+
+
+float aumento_salario(float argumento){
+
+float resultado, argumento_2;
+
+if (argumento <= 2000)
+{
+   argumento_2 = argumento*13;
+   argumento_2 = argumento_2/100;
+resultado = argumento_2 + argumento; 
+
+}else if (argumento > 2000 && argumento < 4000)
+{
+   argumento_2 = (argumento*11)/ 100;
+ resultado = argumento_2 + argumento;  
+}else if (argumento > 4000 && argumento <= 8000)
+{
+    argumento_2 = (argumento*9)/ 100;
+ resultado = argumento_2 + argumento;  
+}else{
+
+    argumento_2 = (argumento*7)/ 100;
+ resultado = argumento_2 + argumento; 
+}
+return resultado;
+}
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/* 5. Desenvolva um programa que calcule a média aritmética de quatro números, ponto flutuante, informados
+pelo usuário. O programa deve exibir o valor da média e, para cada número exibir se ele está abaixo ou acima
+da média. */
+
+#include <stdio.h>
+
+float calcular_media(float a, float b, float c, float d);
+
+
+
+
+int main(){
+
+    float n1, n2, n3, n4;
+
+    printf("Informe quatro números: ");
+    scanf("%f %f %f %f", &n1, &n2, &n3, &n4);
+
+calcular_media(n1, n2, n3, n4);
+
+    return 0;
+}
+
+float calcular_media(float a, float b, float c, float d){
+
+float media;
+
+
+media = (a + b + c + d) / 4.0;
+
+printf("Média: %.f\n", media);
+
+int contador = 1;
+
+
+if (a >= media )
+{
+   printf("O número %.f está na média.\n", a);
+}else{
+    printf("O número %.f está abaixo da média.\n", a);
+}
+if (b >= media )
+{
+   printf("O número %.f está na média.\n", b);
+}else{
+    printf("O número %.f está abaixo da média.\n", b);
+}
+if (c >= media )
+{
+   printf("O número %.f está na média.\n", c);
+}else{
+    printf("O número %.f está abaixo da média.\n", c);
+}
+if (d >= media )
+{
+   printf("O número %.f está na média.\n", d);
+}else{
+    printf("O número %.f está abaixo da média.\n", d);
+}
+ 
+ 
+}
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/* 6. Uma concessionária de carros paga a seus vendedores um salário de R$ 3.000,00 por mês, mais uma
+comissão de R$ 500,00 para cada carro vendido e mais 5% do valor das venda. Caso o vendedor seja gerente,
+ele ainda receberá um bônus de 1% sobre as vendas. Desenvolva um programa para calcular e exibir o salário
+do vendedor num dado mês, recebendo como dados de entrada o CPF do vendedor, o número de carros
+vendidos, o valor total das vendas e caso seja gerente, o valor de seu bônus. */
+
+#include <stdio.h>
+
+/*
+NCV - Número Carros Vendidos.
+VV - Valor total das vendas.
+VB - Valor bonus (Caso seja gerente).
+*/
+
+float calcular_sal_final( int qtdVendida, float valor_venda, int funcionario);
+
+int main(){
+
+    int cpf,NCV, gerente;
+    float VV, VB;
+
+printf("Informe seu CPF: ");
+scanf("%d", &cpf);
+
+printf("Quantidade de veiculos vendidos: ");
+scanf("%d", &NCV);
+
+printf("Qual valor total das vendas: ");
+scanf("%f", &VV);
+
+printf("Caso seja gerente informe 1, senão, informe 0: ");
+scanf("%d", &gerente);
+
+calcular_sal_final(NCV, VV, gerente);
+
+    return 0;
+}
+
+float calcular_sal_final(int qtdVendida, float valor_venda, int funcionario){
+
+float salario_final;
+float bonus, bonus_gerente;
+
+
+if (funcionario == 0)
+{
+bonus = (valor_venda * 5) / 100;
+    salario_final = 3000 + (qtdVendida * 500) + bonus;
+}else{
+bonus_gerente = (valor_venda *1)/100;
+bonus = (valor_venda * 5) / 100;
+    salario_final = 3000 + (qtdVendida * 500) + bonus + bonus_gerente;
+
+}
+
+printf(" Seu salário é de: %f nesse mês. Parabéns!\n", salario_final);
+
+}
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________

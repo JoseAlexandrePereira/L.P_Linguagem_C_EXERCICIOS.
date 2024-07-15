@@ -1,0 +1,563 @@
+/*  Read 4 integer values A, B, C and D. Then if B is greater than C and D is greater than A and if the sum of C and D is greater than the sum of A and B and if C and D were positives values and if A is even, write the message “Valores aceitos” (Accepted values). Otherwise, write the message “Valores nao aceitos” (Values not accepted).
+
+Input
+Four integer numbers A, B, C and D.
+
+Output
+Show the corresponding message after the validation of the values​​.*/
+
+
+#include <stdio.h>
+
+int verificarvalores(int A, int B, int C, int D){
+
+if (B > C && D > A && (C+D) > (A+B) && C > 0 && D > 0 && A % 2 ==0) {
+
+    return 1;
+
+}else{
+
+return 0;
+
+}
+}
+
+int main(){
+    int A, B, C, D;
+
+    printf("Enter four integer values:");
+    scanf("%d %d %d %d", &A, &B, &C, &D);
+    
+
+if (verificarvalores(A, B, C, D)){
+
+printf("Valores Aceitos\n");
+
+}else{
+    printf("Valores não aceitos\n"); 
+}
+    return 0;
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+   
+/* Read 3 floating-point numbers. After, print the roots of bhaskara’s formula. If it's impossible to calculate the roots because a division by zero or a square root of a negative number, presents the message “Impossivel calcular”.
+
+Input
+Read 3 floating-point numbers (double) A, B and C.
+
+Output
+Print the result with 5 digits after the decimal point or the message if it is impossible to calculate. */
+
+#include <stdio.h>
+#include <math.h>
+
+void calculaRaizes(double A, double B, double C, double *raiz1, double *raiz2) {
+    double delta = B * B - 4 * A * C;
+
+    if (delta < 0 || A == 0) {
+        *raiz1 = *raiz2 = NAN; 
+    } else {
+        *raiz1 = (-B + sqrt(delta)) / (2 * A);
+        *raiz2 = (-B - sqrt(delta)) / (2 * A);
+    }
+}
+
+
+int podeCalcularRaizes(double A, double B, double C) {
+    double delta = B * B - 4 * A * C;
+    return !(delta < 0 || A == 0);
+}
+
+int main() {
+    double A, B, C;
+    double raiz1, raiz2;
+
+    
+    printf("Digite o valor de A: ");
+    scanf("%lf", &A);
+    printf("Digite o valor de B: ");
+    scanf("%lf", &B);
+    printf("Digite o valor de C: ");
+    scanf("%lf", &C);
+
+    
+    if (podeCalcularRaizes(A, B, C)) {
+     
+        calculaRaizes(A, B, C, &raiz1, &raiz2);
+        
+        printf("R1 = %.5lf\n", raiz1);
+        printf("R2 = %.5lf\n", raiz2);
+    } else {
+        printf("Impossivel calcular\n");
+    }
+
+    return 0;
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+   /* You must make a program that read a float-point number and print a message saying in which of following intervals the number belongs: [0,25] (25,50], (50,75], (75,100]. If the read number is less than zero or greather than 100, the program must print the message “Fora de intervalo” that means "Out of Interval".
+
+The symbol '(' represents greather than. For example:
+[0,25] indicates numbers between 0 and 25.0000, including both.
+(25,50] indicates numbers greather than 25 (25.00001) up to 50.0000000.
+
+Input
+The input file contains a floating-point number.
+
+Output
+The output must be a message like following example. */
+
+#include <stdio.h>
+
+float calcular_intervalo(float num);
+
+int main(){
+    
+    float numero;
+
+    printf("Informe um número: ");
+    scanf("%f", &numero);
+
+calcular_intervalo(numero);
+
+    return 0;
+}
+
+float calcular_intervalo(float num){
+ 
+ int intervalo;
+
+ if (num >= 0 && num <= 25.0)
+ {
+    printf("Intervalo [0,25]\n");
+ }else if (num > 25.0 && num <= 50.0)
+ {
+     printf("Intervalo (25,50]\n");
+ }else if (num > 50.0 && num <= 75.0)
+ {
+     printf("Intervalo (50,75]\n");
+ }else if (num > 75.0 && num <= 100.0)
+ {
+     printf("Intervalo (75,100]\n");
+ }else{
+    printf("Fora de intervalo\n");
+
+ }
+
+}
+   
+________________________________________________________________________________________________________________________________________________________________________________________   
+
+/* Using the following table, write a program that reads a code and the amount of an item. After, print the value to pay. This is a very simple program with the only intention of practice of selection commands.
+
+ Input
+The input file contains two integer numbers X and Y. X is the product code and Y is the quantity of this item according to the above table.
+
+Output
+The output must be a message "Total: R$ " followed by the total value to be paid, with 2 digits after the decimal point.
+*/
+
+
+#include <stdio.h>
+
+int calcular_compra(int codigo, int quant);
+
+int main(){
+
+int X, Y;
+
+printf("informe o código do produto:");
+scanf("%d", &X);
+
+printf("informe a quantidade do produto: ");
+scanf("%d", &Y);
+
+calcular_compra(X, Y);
+
+    return 0;
+}
+
+int calcular_compra(int codigo, int quant){
+
+double total_compra;
+
+if (codigo == 1)
+{
+    total_compra = quant* 4;
+}else if (codigo == 2)
+{
+     total_compra = quant*4.50;
+}else if (codigo == 3)
+{
+     total_compra = quant*5;
+}else if (codigo == 4)
+{
+     total_compra = quant*2;
+}else if (codigo == 5)
+{
+     total_compra = quant*1.50;
+}
+
+printf("Total: R$ %.2lf\n", total_compra);
+
+
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+/* Read four numbers (N1, N2, N3, N4), which one with 1 digit after the decimal point, corresponding to 4 scores obtained by a student. Calculate the average with weights 2, 3, 4 e 1 respectively, for these 4 scores and print the message "Media: " (Average), followed by the calculated result. If the average was 7.0 or more, print the message "Aluno aprovado." (Approved Student). If the average was less than 5.0, print the message: "Aluno reprovado." (Reproved Student). If the average was between 5.0 and 6.9, including these, the program must print the message "Aluno em exame." (In exam student).
+
+In case of exam, read one more score. Print the message "Nota do exame: " (Exam score) followed by the typed score. Recalculate the average (sum the exam score with the previous calculated average and divide by 2) and print the message “Aluno aprovado.” (Approved student) in case of average 5.0 or more) or "Aluno reprovado." (Reproved student) in case of average 4.9 or less. For these 2 cases (approved or reproved after the exam) print the message "Media final: " (Final average) followed by the final average for this student in the last line.
+
+Input
+The input contains four floating point numbers that represent the students' grades.
+
+Output
+Print all the answers with one digit after the decimal point. */
+
+#include <stdio.h>
+
+double calcular_media();
+
+int main()
+{
+    double n1, n2, n3, n4;
+
+    printf("Informe nota 1: ");
+    scanf("%lf", &n1);
+
+    printf("Informe nota 2: ");
+    scanf("%lf", &n2);
+
+
+    printf("Informe nota 3: ");
+    scanf("%lf", &n3);
+
+    printf("Informe nota 4: ");
+    scanf("%lf", &n4);
+
+calcular_media(n1, n2, n3, n4);
+
+    return 0;
+}
+
+double calcular_media(double nota_1, double nota_2, double nota_3, double nota_4){
+
+double media;
+
+media = (nota_1 * 2.0 + nota_2 * 3.0 + nota_3 * 4.0 + nota_4 * 1.0) / 10.0;
+
+printf("Media: %.1lf\n", media);
+
+if (media >= 7.0)
+{
+   printf("Aluno aprovado\n");
+} else if (media < 5.0)
+{
+    printf("Aluno reprovado\n");
+}else
+{
+
+    double nota_exame, media_final;
+
+
+    printf("Aluno em exame.\n");
+        
+        scanf("%lf", &nota_exame);
+
+        printf("Nota do exame: %.1f\n", nota_exame);
+        
+        
+        media_final = (media + nota_exame) / 2.0;
+        
+        if (media_final >= 5.0) {
+            printf("Aluno aprovado.\n");
+        } else {
+            printf("Aluno reprovado.\n");
+        }
+        
+        printf("Media final: %.1f\n", media_final);
+
+}
+
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+/* Write an algorithm that reads two floating values (x and y), which should represent the coordinates of a point in a plane. Next, determine which quadrant the point belongs, or if you are at one of the Cartesian axes or the origin (x = y = 0).
+
+ If the point is at the origin, write the message "Origem".
+
+If the point is at X axis write "Eixo X", else if the point is at Y axis write "Eixo Y".
+
+Input
+The input contains the coordinates of a point.
+
+Output
+The output should display the quadrant in which the point is.
+*/
+
+
+#include <stdio.h>
+
+double calcular_quadrante(double X, double Y);
+
+int main(){
+    
+    double x, y;
+
+    printf("Informe X: ");
+    scanf("%lf", &x);
+
+    printf("Informe Y: ");
+    scanf("%lf", &y);
+
+calcular_quadrante(x, y);
+    
+        return 0;
+   
+}
+
+double calcular_quadrante(double X, double Y){
+
+if (X == 0.0 && Y == 0.0) {
+
+        printf("Origem\n");
+
+    } else if (X == 0.0) {
+
+        printf("Eixo Y\n");
+
+    } else if (Y == 0.0) {
+
+        printf("Eixo X\n");
+
+    } else {
+
+    if (X > 0 && Y > 0)
+    {
+        printf("Q1\n");
+    } else if (X < 0 && Y > 0)
+    {
+        printf("Q2\n");
+    }else if (X < 0 && Y < 0)
+    {
+        printf("Q3\n");
+    }else if (X > 0 && Y < 0)
+    {
+        printf("Q4\n");
+    }
+
+    }
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+/* Read three integers and sort them in ascending order. After, print these values in ascending order, a blank line and then the values in the sequence as they were readed.
+
+Input
+The input contains three integer numbers.
+
+Output
+Present the output as requested above. */
+
+#include<stdio.h>
+
+int calcular_ordem(int a, int b, int c);
+
+int main(){
+
+    int n1, n2, n3;
+
+    scanf("%d%d%d", &n1, &n2, &n3);
+
+    calcular_ordem(n1,n2,n3);
+
+    printf("%d\n", n1);
+    printf("%d\n", n2);
+    printf("%d\n", n3);
+
+    return 0;
+}
+
+int calcular_ordem(int a, int b, int c){
+
+    if (a < b && a < c && b > c)
+    {
+        printf("%d\n", a);
+        printf("%d\n", c);
+        printf("%d\n", b);
+    }
+    else if (a < b && a < c && b < c)
+    {
+        printf("%d\n", a);
+        printf("%d\n", b);
+        printf("%d\n", c);
+    }
+    else if (b < a && b < c && a < c)
+    {
+        printf("%d\n", b);
+        printf("%d\n", a);
+        printf("%d\n", c);
+    }
+    else if (b < a && b < c && a > c)
+    {
+        printf("%d\n", b);
+        printf("%d\n", c);
+        printf("%d\n", a);
+    }
+    else if (c < a && c < b && a < b)
+    {
+        printf("%d\n", c);
+        printf("%d\n", a);
+        printf("%d\n", b);
+    }
+    else
+    {
+        printf("%d\n", c);
+        printf("%d\n", b);
+        printf("%d\n", a);
+    }
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+/* Read two integer values (A and B). After, the program should print the message "Sao Multiplos" (are multiples) or "Nao sao Multiplos" (aren’t multiples), corresponding to the read values.
+
+Input
+The input has two integer numbers.
+
+Output
+Print the relative message to the input as stated above. */
+
+#include <stdio.h>
+
+int calcular_multiplos(int a, int b);
+
+int main()
+{
+    int n1, n2;
+
+    printf("Digite um número:");
+    scanf("%d", &n1);
+
+    printf("Informe outro número: ");
+    scanf("%d", &n2);
+
+calcular_multiplos(n1, n2);
+
+    return 0;
+}
+
+int calcular_multiplos(int a, int b){
+
+if (b % a == 0 || a % b == 0)
+{
+    printf("Sao multiplos\n");
+}else{
+    printf("Nao sao Multiplos\n");
+}
+
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+/* Read the start time and end time of a game, in hours. Then calculate the duration of the game, knowing that the game can begin in a day and finish in another day, with a maximum duration of 24 hours. The message must be printed in portuguese “O JOGO DUROU X HORA(S)” that means “THE GAME LASTED X HOUR(S)”
+
+Input
+Two integer numbers representing the start and end time of a game.
+
+Output
+Print the duration of the game as in the sample output */
+
+
+#include <stdio.h>
+
+void calcular_jogo(int inicio, int termino);
+
+int main(){
+    int horas_inicio, horas_termino;
+	
+    scanf("%d %d", &horas_inicio, &horas_termino);
+	
+    calcular_jogo(horas_inicio, horas_termino);
+
+    return 0;
+}
+
+void calcular_jogo(int inicio, int termino){
+    int duracao;
+    
+    if (inicio < termino){
+        duracao = termino - inicio;
+    }else if (inicio > termino){
+        duracao = 24 - inicio + termino;
+    }else{
+        duracao = 24;
+    }
+    
+    printf("O JOGO DUROU %d HORA(S)\n", duracao);
+}
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+/* In an imaginary country called Lisarb, all the people are very happy to pay their taxes because they know that doesn’t exist corrupt politicians and the taxes are used to benefit the population, without any misappropriation. The currency of this country is Rombus, whose symbol is R$.
+
+Read a value with 2 digits after the decimal point, equivalent to the salary of a Lisarb inhabitant. Then print the due value that this person must pay of taxes, according to the table below.
+
+
+
+Remember, if the salary is R$ 3,002.00 for example, the rate of 8% is only over R$ 1,000.00, because the salary from R$ 0.00 to R$ 2,000.00 is tax free. In the follow example, the total rate is 8% over R$ 1000.00 + 18% over R$ 2.00, resulting in R$ 80.36 at all. The answer must be printed with 2 digits after the decimal point.
+
+Input
+The input contains only a float-point number, with 2 digits after the decimal point.
+
+Output
+Print the message "R$" followed by a blank space and the total tax to be payed, with two digits after the decimal point. If the value is up to 2000, print the message "Isento".
+ */
+
+#include <stdio.h>
+
+
+int main(){
+    
+double calcular_imposto(double sal);
+
+double salario;
+
+printf("Informe seu salaŕio: ")/
+scanf("%lf", &salario);
+
+calcular_imposto(salario);
+
+    return 0;
+}
+
+double calcular_imposto(double sal){
+
+    double valor_imposto;
+
+if (sal <= 2000.00) {
+
+        printf("Isento\n");
+
+    } else if (sal <= 3000.00) {
+
+            valor_imposto = (sal - 2000.00) * 0.08;
+
+        } else if (sal <= 4500.00)
+        {
+            valor_imposto = 1000.00 * 0.08 + (sal - 3000.00) * 0.18;
+            
+        }else{
+        valor_imposto = 1000.00 * 0.08 + (sal - 4500.00) * 0.28;
+
+        }
+       
+
+        printf("R$ %.2lf\n", valor_imposto);
+    }
+
+________________________________________________________________________________________________________________________________________________________________________________________

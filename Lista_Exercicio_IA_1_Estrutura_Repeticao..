@@ -1,0 +1,116 @@
+/* Exercício 1: Contador de Números
+Crie um programa que use um loop for para contar de 1 a 10 e imprimir cada número na tela. */
+
+#include <stdio.h>
+
+int main(){
+
+for (int i = 0; i <= 10; i++){
+    printf("%d\n", i);
+
+}
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* Exercício 2: Somando Números
+Escreva um programa que use um loop while para somar os números de 1 a 100 e exibir a soma total no final. */
+
+#include <stdio.h>
+
+int main()
+{
+
+int rep = 1, num = 1, soma;
+
+while(rep <= 100){
+
+soma = num + soma;
+ num++;
+rep ++;
+}
+printf("O valor final da soma é: %d", soma);
+
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/* Exercício 3: Tabuada
+Faça um programa que utilize um loop for para imprimir a tabuada de um número fornecido pelo usuário (de 1 a 10). Por exemplo, se o número fornecido for 7, o programa deve mostrar 7 x 1, 7 x 2, e assim por diante até 7 x 10. */
+
+#include <stdio.h>
+
+int main()
+{
+
+    int num, mult;
+
+printf("A tabudada de qual número você deseja saber ?");
+scanf("%d", &num);
+
+for (int i = 0; i <= 10; i++)
+{
+    mult = num * i; 
+
+    printf("%d X %d = %d\n", i, num, mult);
+}
+
+
+    return 0;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/* Exercício 4: Contagem Regressiva
+Desenvolva um programa que use um loop do while para exibir uma contagem regressiva a partir de 10 até 0. A cada iteração, o número deve ser decrementado e exibido. */
+
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+    int num=10;
+
+    while(num >= 0)
+    {
+        printf("%d\n", num--);
+    }
+    
+    return 0;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/* Exercício 5: Números Pares
+Crie um programa que utilize um loop for para imprimir todos os números pares entre 1 e 50. Por exemplo, o programa deve imprimir 2, 4, 6, 8, e assim por diante até 50. */
+
+
+
+#include <stdio.h>
+
+int main()
+{
+ 
+    for (int i=1; i <= 50; i++)
+    {   
+        if (i%2==0)
+        {
+            printf("%d\n", i);
+        }
+        
+        
+    }
+    
+    return 0;
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

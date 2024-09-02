@@ -1,0 +1,171 @@
+/* 1 - Qual função deve estar presente em todos os programas em C?*/
+
+/* Resposta: A função int main(); */
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 2 - Como devem terminar todas as instruções em C? */
+
+/* Resposta: Devem terminar com ponto e vírgula (;) */
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*  3 - Como é delimitado um bloco de comandos em C?*/
+
+/* Resposta: É delimitado com chaves '{ }' */
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 4 - A função printf é parte integrante da linguagem C? */
+
+/* Resposta: Não necessariamente, pois a função "printf" faz parte da biblioteca padrão da linguagem C, ou seja, sem o "<stdio.h>" ela não é reconhecida.*/
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 5 - Para que serve a linha #include <stdio.h> de um programa? */
+
+/* Resposta: Para incluir o cabeçalho da biblioteca padrão de entrada e saída, que declara funções como printf e scanf */
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*  6. Escrever um programa que mostre a seguinte figura no alto da tela:
+
+XXXXX
+X   X
+X   X
+X   X
+XXXXX
+
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    printf("XXXXX\n");
+    printf("X   X\n");
+    printf("X   X\n");
+    printf("X   X\n");
+    printf("XXXXX\n");
+
+    return 0;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 7. Escreva um programa que produza a seguinte saída na tela:
+
+ALUNO(A)  NOTA
+========= =====
+ALINE      9.0
+MÁRIO      DEZ
+SÉRGIO     4.5
+SHIRLEY    7.0
+ */
+
+#include <stdio.h>
+
+
+int main()
+{
+// printf("ALUNO(A)  NOTA\n =========  =====\n ALINE       9.0\n MÁRIO       DEZ\n SÉRGIO      4.5\n SHIRLEY     7.0\n");
+      
+    printf("ALUNO(A)  NOTA\n");
+    printf("=========  =====\n");
+    printf("ALINE       9.0\n");
+    printf("MÁRIO       DEZ\n");
+    printf("SÉRGIO      4.5\n");
+    printf("SHIRLEY     7.0\n");
+    return 0;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 8- Elabore um programa para produzir na tela a letra “C”, conforme exemplo abaixo. */
+
+#include <stdio.h>
+
+int main()
+{
+
+printf("CCCCC\nC\nC\nCCCCC\n");
+
+    return 0;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 9. Elabore um programa que mostre o seguinte menu na tela:
+Cadastro de Clientes
+0 - Fim
+1 - Inclui
+2 - Altera
+3 - Exclui
+4 - Consulta
+Opção: */
+
+
+#include <stdio.h>
+
+int main()
+{
+int opcao;
+
+    printf("0 - Fim\n1 - inclui\n2 - Altera\n3 - Exclui\n4 - Consulta\nOpção: ");
+    scanf("%d", &opcao);
+
+    return 0;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Implemente um programa que desenhe um "pinheiro" na tela, 
+
+       X
+      XXX
+     XXXXX
+    XXXXXXX
+   XXXXXXXXX
+  XXXXXXXXXXX
+ XXXXXXXXXXXXX
+XXXXXXXXXXXXXXX
+      XX
+      XX
+     XXXX
+
+
+ */
+
+#include <stdio.h>
+
+int main()
+{
+    printf("       X\n      XXX\n     XXXXX\n    XXXXXXX\n   XXXXXXXXX\n  XXXXXXXXXXX\n XXXXXXXXXXXXX\nXXXXXXXXXXXXXXX\n      XX\n      XX\n     XXXX\n");
+    return 0;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 11. Elabore um programa para produzir seu nome, conforme exemplo abaixo caso meu nome
+fosse “ANA”:
+
+AAAAAAAAAA   NNN     NN   AAAAAAAAAA
+AA      AA   NN N    NN   AA      AA
+AAAAAAAAAA   NN  N   NN   AAAAAAAAAA
+AA      AA   NN   N  NN   AA      AA
+AA      AA   NN    NNN    AA      AA
+ */
+
+#include <stdio.h>
+
+int main()
+{
+  printf("AAAAAAAAAA   NNN     NN   AAAAAAAAAA\nAA      AA   NN N    NN   AA      AA\nAAAAAAAAAA   NN  N   NN   AAAAAAAAAA\nAA      AA   NN   N  NN   AA      AA\nAA      AA   NN    NNN    AA      AA\n");
+    return 0;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

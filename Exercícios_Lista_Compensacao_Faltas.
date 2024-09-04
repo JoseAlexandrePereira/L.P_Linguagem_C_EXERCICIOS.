@@ -1,0 +1,100 @@
+/* 1) O algoritmo abaixo lê 3 valores inteiros e escreve o maior (nome da var). Porém, o algoritmo contém erros.
+Analise o código e reescreva o algoritmo para que funcione corretamente:
+inicio_algoritmo
+inteiro a,b,c
+leia(a,b,c)
+se ((a > c) e (a < b)) então
+ m=’a’
+senão se ((a > b) ou (b > c)) então
+ m=’b’
+senão
+ m=’c’
+fim_se
+escreva(m)
+Fim_algoritmo */
+
+
+
+ inicio_algoritmo
+    inteiro a, b, c, m
+
+    leia(a, b, c)
+
+    se (a >= b) e (a >= c) então
+        m = 'a'
+    senão se (b >= a) e (b >= c) então
+        m = 'b'
+    senão
+        m = 'c'
+    fim_se
+
+    escreva(m)
+Fim_algoritmo 
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/* 2) Escreva um programa que repita a leitura de uma senha até que ela seja válida. Para cada leitura de senha
+incorreta informada, escrever a mensagem "Senha Inválida". Quando a senha for informada corretamente
+deve ser impressa a mensagem "Acesso Permitido" e o algoritmo encerrado. Considere que a senha correta é
+o valor 2012. */
+
+#include <stdio.h>
+
+int main(){
+    
+    int senha;
+
+while (senha == 2012);
+
+printf("Digite a senha:");
+scanf("%d", &senha);
+
+{
+    if (senha != 2012){
+    printf("Senha inválida\n");
+}else{
+
+    printf("Acesso permitido\n");
+}
+}
+    return 0;
+}
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+/* 3) Escreva um programa para ler as coordenadas (X,Y) de uma quantidade indeterminada de pontos no
+sistema cartesiano. Para cada ponto escrever o quadrante a que ele pertence. O algoritmo será encerrado
+quando pelo menos uma de duas coordenadas for NULA (nesta situação sem escrever mensagem alguma). */
+
+#include <stdio.h>
+
+int main(){
+    
+    double x, y;
+
+    printf("Informe X: ");
+    scanf("%lf", &x);
+
+    printf("Informe Y: ");
+    scanf("%lf", &y);
+
+    if (x > 0 && y > 0)
+    {
+        printf("As cordenadas informadas pertecem ao quadrante 1.\n");
+    } else if (x < 0 && y > 0)
+    {
+        printf("As cordenadas informadas pertecem ao quadrante 2.\n");
+    }else if (x < 0 && y < 0)
+    {
+        printf("As cordenadas informadas pertecem ao quadrante 3.\n");
+    }else if (x > 0 && y < 0)
+    {
+        printf("As cordenadas informadas pertecem ao quadrante 4.\n");
+    }else if (x == 0 && y == 0)
+    {
+        return 0;
+    }
+   
+}
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________

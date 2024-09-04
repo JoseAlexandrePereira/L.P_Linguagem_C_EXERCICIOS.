@@ -1,0 +1,232 @@
+//Aula de Fundamentos de algoritmo e computação.
+
+/* 1) Criar um algoritmo que leia três valores inteiros: a,b e c. Após a leitura destes dados exiba o nome da
+variável em ordem crescente. Obs: considerar todas as possíveis entradas.*/
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Resolução: 
+
+#include <stdio.h>
+
+int main(){
+
+    int a, b, c;
+
+printf("Digite o valor de A:");
+scanf("%d", &a);
+printf("Digite o valor de B:");
+scanf("%d", &b);
+printf("Digite o valor de C:");
+scanf("%d", &c);
+
+int ord;
+
+if(a > b){
+    ord = a;
+    a = b;
+    b = ord;
+}
+if(b > c){
+    ord = b;
+    b=c;
+    c=ord;
+}
+if(a > b){
+    ord = a;
+    a = b;
+    b = ord;
+}
+
+ printf("valores em ordem crescente %d, %d, %d\n", a, b, c);
+
+ return 0;
+
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* // 2. Fazer um algoritmo que leia três valores inteiros A, B e C Após a leitura destes dados coloque os em ordem
+crescente, sendo que A contém o menor valor, B o valor intermediário e C o maior valor. Obs: considere que
+os três valores podem ser iguais.*/
+
+// Resolução: 
+
+#include <stdio.h>
+
+int main() {
+    int X, Y;
+    
+    
+    printf("Digite o valor de X: ");
+    scanf("%d", &X);
+    printf("Digite o valor de Y: ");
+    scanf("%d", &Y);
+    
+    if (X > Y) {
+        
+        int temp = X;
+        X = Y;
+        Y = temp;
+    } else {
+       
+        X *= 2;
+        Y *= 3;
+    }
+    
+    printf("Valor de X: %d\n", X);
+    printf("Valor de Y: %d\n", Y);
+    
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*  3. Criar um algoritmo que leia dois valores inteiros X e Y Se X for maior que Y, trocar os valores das variáveis
+Caso contrário, multiplicar X por 2 e Y por 3 No final, exibir o valor das variáveis.*/
+
+// Resolução: 
+
+#include<stdio.h>
+
+
+int main(){
+
+int X, Y;
+
+printf("Digite o Valor de X:\n");
+scanf("%d", &X);
+
+printf("Digite o Valor de Y:\n");
+scanf("%d", &Y);
+
+if(X > Y){
+
+    int alterar = X;
+    
+    X = Y;
+    Y = alterar;
+
+}else{
+ X = X*2;
+Y = Y*3;
+}
+
+printf("Os valores de X é: %d\n", X);
+printf("Os valores de Y é: %d\n", Y);
+
+return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* 4. Fazer um algoritmo que leia três valores reais X, Y, Z correspondentes aos lados de um triângulo Verificar se
+eles podem ser os comprimentos dos lados de um triângulo, e se forem, verificar se é um triângulo equilátero,
+isósceles ou escaleno. Se eles não formarem um triângulo, escrever uma mensagem. Obs: o comprimento de
+cada lado de um triângulo é menor do que a soma dos comprimentos dos outros dois lados.*/
+
+// Resolução: 
+
+#include <stdio.h>
+
+int main() {
+    float X, Y, Z;
+    
+    
+    printf("Digite o valor de X: ");
+    scanf("%f", &X);
+    printf("Digite o valor de Y: ");
+    scanf("%f", &Y);
+    printf("Digite o valor de Z: ");
+    scanf("%f", &Z);
+    
+    if (X < Y + Z && Y < X + Z && Z < X + Y) {
+        
+        if (X == Y && Y == Z) {
+            printf("Os lados formam um triângulo equilátero.\n");
+        } else if (X == Y || X == Z || Y == Z) {
+            printf("Os lados formam um triângulo isósceles.\n");
+        } else {
+            printf("Os lados formam um triângulo escaleno.\n");
+        }
+    } else {
+        printf("Os valores fornecidos não podem formar um triângulo.\n");
+    }
+    
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* 5. Criar um algoritmo que leia uma quantidade indeterminada de duplas de valores inteiros X e Y. Escreva para
+cada X e Y uma mensagem que indique se estes valores foram digitados em ordem crescente ou decrescente.*/
+
+// Resolução: 
+
+#include <stdio.h>
+
+int main() {
+    int X, Y;
+    char continuar;
+    
+    do {
+        
+        printf("Digite o valor de X: ");
+        scanf("%d", &X);
+        printf("Digite o valor de Y: ");
+        scanf("%d", &Y);
+        
+        if (X < Y) {
+            printf("Os valores (%d, %d) foram digitados em ordem crescente.\n", X, Y);
+        } else if (X > Y) {
+            printf("Os valores (%d, %d) foram digitados em ordem decrescente.\n", X, Y);
+        } else {
+            printf("Os valores (%d, %d) são iguais.\n", X, Y);
+        }
+        
+      
+        printf("\nDeseja digitar mais valores? (S/N): ");
+        scanf(" %c", &continuar);
+    } while (continuar == 'S' || continuar == 's');
+    
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/* 6. Escreva um programa para ler as coordenadas (X,Y) de uma quantidade indeterminada de pontos no
+sistema cartesiano. Para cada ponto escrever o quadrante a que ele pertence. O algoritmo será encerrado
+quando pelo menos uma de duas coordenadas for NULA (nesta situação sem escrever mensagem alguma). */
+
+// Resolução: 
+
+#include <stdio.h>
+
+int main() {
+    int X, Y;
+    
+    while (1) {
+        
+        printf("Digite as coordenadas (X Y): ");
+        scanf("%d %d", &X, &Y);
+        
+        
+        if (X == 0 || Y == 0) {
+            break;
+        }
+        
+        if (X > 0 && Y > 0) {
+            printf("O ponto (%d, %d) pertence ao Quadrante 1.\n", X, Y);
+        } else if (X < 0 && Y > 0) {
+            printf("O ponto (%d, %d) pertence ao Quadrante 2.\n", X, Y);
+        } else if (X < 0 && Y < 0) {
+            printf("O ponto (%d, %d) pertence ao Quadrante 3.\n", X, Y);
+        } else if (X > 0 && Y < 0) {
+            printf("O ponto (%d, %d) pertence ao Quadrante 4.\n", X, Y);
+        }
+        
+    }
+    
+    return 0;
+}
+

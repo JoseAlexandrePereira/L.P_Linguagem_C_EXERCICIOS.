@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+int ano;
+
+printf("Digite o ano para verificar se é bissexto: ");
+scanf("%d", &ano);
+
+if (ano == 2000 || ano == 1600)
+{
+    
+    return printf("Ano não é bissexto");
+
+} else if (ano % 400 == 0){
+    
+   printf("\n\nAno é bissexto.\n\n");
+
+}else{
+    if ((ano % 4 == 0) && (ano % 100 != 0))
+    {
+        printf("\n\nAno é bissexto.\n\n");
+    }else{
+        printf("Ano não é bissexto");
+    }
+    
+}
+
+    return 0;
+}
